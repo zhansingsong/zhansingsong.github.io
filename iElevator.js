@@ -50,7 +50,7 @@
 					me.element.hide();
 					}
 				},
-				meta = this.element.data('iElevator-options') || {};
+				meta = this.element.data('ielevator-options') || {};
 		// configurations extended,  priority: _defaults < options < meta
 		this.settings = $.extend({}, _defaults, options, meta);
     this.init(options);

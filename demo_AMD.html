@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,16 +82,7 @@
         margin-left: 520px;
         background: #CDDC39;
     }
-    .elevator-backtop{
-        bottom: 200px;
-        top: auto;
-        margin-left: -580px;
-    }
-    .elevator-backtop a{
-        display: block;
-        padding: 6px 10px;
-        border: 2px solid black;
-    }
+    
     .elevator ul li {
         margin-bottom: 2px;
     }
@@ -115,7 +105,7 @@
     }
     
     .elevator .custome-selected {
-        background: blue;
+        background: #FF5722;
     }
     </style>
 </head>
@@ -150,7 +140,7 @@
             <h1>Footer</h1>
         </div>
     </div>
-    <div class="elevator" id="elevator" data-ielevator-options=''>
+    <div class="elevator" id="elevator" data-iElevator-options=''>
         <ul>
             <li><a href="javascript:;" class="js-btn">floor1</a></li>
             <li><a href="javascript:;" class="js-btn">floor2</a></li>
@@ -162,22 +152,7 @@
             <li><a href="javascript:;" class="js-backtop">TOP</a></li>
         </ul>
     </div>
-    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
-    <script type="text/javascript" src="iElevator.js"></script>
-    <script>
-    $('#elevator').ielevator({
-        floors: $('.js-floor'),
-        btns: $('#elevator .js-btn'),
-        backtop: $('#elevator .js-backtop'),
-        selected: 'selected',
-        visible: {isHide: 'yes', numShow: 400},
-        show: function() {
-            $('#elevator').slideDown(400);
-        },
-        hide: function() {
-            $('#elevator').slideUp(400);
-        }
-    });
-    </script>
+    <script data-main="main" src="js/require.js"></script>
 </body>
+
 </html>
