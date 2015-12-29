@@ -3,7 +3,7 @@ require.config({　　
         "jquery": "js/jquery-1.8.2"
     }
 });
-require(["ielevator"], function() {
+require(["iElevator"], function() {
     $('#elevator').ielevator({
         floors: $('.js-floor'),
         btns: $('#elevator .js-btn'),
