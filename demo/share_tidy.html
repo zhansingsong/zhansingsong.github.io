@@ -3,7 +3,7 @@
 <head>
 	<title>iShare</title>
 	<meta name="description" content="iShare是一个小巧的分享插件，纯JS编写，不依赖于任何第三方库，使用简便.">
-	<meta name="keywords" content="iShare,分享,分享到,分享插件,分享按钮,分享工具,网页分享">
+	<meta name="keywords" content="社会化分享,社会化分享组件,iShare,分享,分享到,分享插件,分享按钮,分享工具,网页分享">
 	<meta name="author" content="zhansingsong">	
 	<link rel="stylesheet" type="text/css" href="./style/fonts/iconfont.css">
 	<link rel="stylesheet" type="text/css" href="./style/css/ishare.css">
@@ -41,10 +41,6 @@
 		  padding: 10px;
 		  color: #d63d18;
 			}
-		.github-link {
-		    position: fixed;
-		    top: 0px;
-		    right: 0px;
 		}
 	</style>
 </head>
@@ -108,7 +104,11 @@ iShare_config = {container:'.iShare1',config:{
 			title: '二维码标题',
 			isTipVisibility: true,
 			tip: '二维码描述文本',
-			bgcolor: '#2BAD13',
+			qrcodeW: '120',
+			qrcodeH: '120',
+			qrcodeBgc: '#e1bee7',
+			qrcodeFgc: '#4a148c',
+			bgcolor: '#9c27b0'
 		}
 	}};
 </script> 
@@ -131,7 +131,11 @@ config:
 			title: '二维码标题',//二维码标题.
 			isTipVisibility: true,//是否显示二维码操作提示,默认为显示,即为true.
 			tip: '二维码描述文本',//二维码描述文本
-			bgcolor: '#2BAD13',//二维码的背景颜色
+			bgcolor: '#9c27b0',//二维码的背景颜色
+			qrcodeW: '120',//二维码宽度
+			qrcodeH: '120',//二维码高度
+			qrcodeBgc: '#e1bee7',//二维码背景色
+			qrcodeFgc: '#4a148c'//二维码前景色
 		}
 	}
 </pre>
@@ -167,7 +171,11 @@ config:
 					title: '二维码标题',
 					isTipVisibility: true,
 					tip: '二维码描述文本',
-					bgcolor: '#2BAD13',
+					qrcodeW: 140,
+					qrcodeH: 140,
+					qrcodeBgc: '#e1bee7',
+					qrcodeFgc: '#4a148c',
+					bgcolor: '#9c27b0'
 				}
 			}};
 	</pre>
@@ -184,12 +192,14 @@ config:
 				isTipVisibility: true,
 				tip: '二维码描述文本',
 				bgcolor: '#2BAD13',
+				qrcodeW: 140,
+				qrcodeH: 140,
+				qrcodeBgc: '#e1bee7',
+				qrcodeFgc: '#4a148c',
+				bgcolor: '#9c27b0'
 			}
 		}};
 </script>
 <script type="text/javascript" src="iShare_tidy.js"></script>
-<a class="github-link" href="https://github.com/zhansingsong/iShare.js" target="_blank">
-    <img src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-</a>
 </body>
 </html>
