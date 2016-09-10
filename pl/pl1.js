@@ -1,17 +1,16 @@
-    /**
-         * pl library :　orientation detection
-         * 横竖屏检测库
-         */
-        ;
+    ;
         (function(win, pl) {
             var meta = {},
                 cbs = [],
                 timer;
 
-            var html = document.documentElement;
             // 是否支持orientationchange事件
             var isOrientation = ('orientation' in window && 'onorientationchange' in window);
-
+            // font-family
+            var html = document.documentElement,
+                hstyle = win.getComputedStyle(html, null),
+                ffstr = hstyle['font-family'];
+            meta.font = ffstr;
             // 订阅与发布
             var event = function() {
                 var fnlist = {},
@@ -72,7 +71,7 @@
             }
 
             // callback
-            var orientationCB = function() {
+            var orientationCB = function(e) {
                 if (win.orientation === 180 || win.orientation === 0) {
                     meta.init = 'portrait';
                     meta.current = 'portrait';
@@ -89,16 +88,15 @@
                         meta.current = 'landscape';
                     }
                     event.trigger('__orientationChange__', meta);
+                    event.trigger('orientationchange', meta);
                 }
             };
             var resizeCB = function() {
-                var hstyle = win.getComputedStyle(html, null),
-                    ffstr = hstyle['font-family'],
-                    pstr = "portrait, " + ffstr,
+                    var pstr = "portrait, " + ffstr,
                     lstr = "landscape, " + ffstr,
                     cssstr = '@media (orientation: portrait) { .orientation{font-family:' + pstr + ';} } @media (orientation: landscape) {  .orientation{font-family:' + lstr + ';}}';
 
-                meta.font = ffstr;
+                // meta.font = ffstr;
                 // 载入样式     
                 loadStyleString(cssstr);
                 // 添加类
@@ -115,11 +113,13 @@
                         if (meta.current !== 'portrait') {
                             meta.current = 'portrait';
                             event.trigger('__orientationChange__', meta);
+                            event.trigger('orientationchange', meta);
                         }
                     } else {
                         if (meta.current !== 'landscape') {
                             meta.current = 'landscape';
                             event.trigger('__orientationChange__', meta);
+                            event.trigger('orientationchange', meta);
                         }
                     }
                 }
@@ -151,7 +151,8 @@
             pl.isOrientation = isOrientation;
             pl.orientation = meta;
             pl.event = event;
-            pl.on = function(cb) {
+            pl.on = event.listen;
+            pl.add = function(cb) {
                 cbs.push(cb);
             }
         })(window, window['pl'] || (window['pl'] = {}));

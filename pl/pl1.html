@@ -59,28 +59,35 @@
 			<p class="line"></p>
 			<p><span class="tt">初始化font-family：</span><span id="ifont" class="val"></span></p>
 			<p><span class="tt">当前font-family：</span><span id="cfont" class="val"></span></p>
+			<p class="line"></p>
+			<p><span class="tt">pl.on：</span><span id="pl" class="val"></span></p>
 		</div>
 
 	</div>
 	<script>
-		(function(win) {
-			var support = document.getElementById('support');
-			var init = document.getElementById('init');
-			var current = document.getElementById('current');
-			var ifont = document.getElementById('ifont');
-			var cfont = document.getElementById('cfont');
-			
-			var getstyle =  window.getComputedStyle(document.documentElement, null);
-			support.innerHTML = win.pl.isOrientation ? '支持' : '不支持';
-			init.innerHTML = win.pl.orientation.init;
-			current.innerHTML = win.pl.orientation.current;
-			ifont.innerHTML = win.pl.isOrientation ? getstyle['font-family'] : win.pl.orientation.font;
+	(function(win) {
+		var support = document.getElementById('support');
+		var init = document.getElementById('init');
+		var current = document.getElementById('current');
+		var ifont = document.getElementById('ifont');
+		var cfont = document.getElementById('cfont');
+		var v = document.getElementById('pl');
+		
+		var getstyle =  window.getComputedStyle(document.documentElement, null);
+		support.innerHTML = win.pl.isOrientation ? '支持' : '不支持';
+		init.innerHTML = win.pl.orientation.init;
+		current.innerHTML = win.pl.orientation.current;
+		ifont.innerHTML = win.pl.orientation.font;
+		cfont.innerHTML = getstyle['font-family'];
+		v.innerHTML = win.pl.orientation.init;
+		win.pl.add(function(event){
+			current.innerHTML = event.current;
 			cfont.innerHTML = getstyle['font-family'];
-			win.pl.on(function(event){
-				current.innerHTML = event.current;
-				cfont.innerHTML = getstyle['font-family'];
-			});
-		})(window);
+		});
+		pl.on('orientationchange', function(e){
+			v.innerHTML = e.current;
+		});
+	})(window);
 	</script>
 </body>
 </html>
