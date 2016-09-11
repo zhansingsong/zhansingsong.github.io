@@ -52,7 +52,7 @@
 	<div class="container">
 		<h2 class="container-tt">测试数据：</h2>
 		<div class="container-wrapper">
-			<p><span class="tt">初始化orientation：</span><span id="support" class="val"></span></p>
+			<p><span class="tt">是否支持orientation：</span><span id="support" class="val"></span></p>
 			<p class="line"></p>
 			<p><span class="tt">初始化orientation：</span><span id="init" class="val"></span></p>
 			<p><span class="tt">当前orientation：</span><span id="current" class="val"></span></p>
@@ -70,7 +70,7 @@
 		var ifont = document.getElementById('ifont');
 		var cfont = document.getElementById('cfont');
 		var getstyle =  window.getComputedStyle(document.documentElement, null);
-		support.initHTML = win.neworientation.isOrientation;
+		support.initHTML = win.pl.neworientation.isOrientation;
 		init.innerHTML = win.pl.neworientation.init;
 		current.innerHTML = win.pl.neworientation.current;
 		ifont.innerHTML = win.pl.neworientation.font;
