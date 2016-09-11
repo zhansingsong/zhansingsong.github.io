@@ -3,9 +3,10 @@
             var meta = {},
                 cbs = [],
                 timer;
-
+            var eventType = 'orientationchange';
             // 是否支持orientationchange事件
             var isOrientation = ('orientation' in window && 'onorientationchange' in window);
+            meta.isOrientation = isOrientation;
             // font-family
             var html = document.documentElement,
                 hstyle = win.getComputedStyle(html, null),
@@ -69,7 +70,26 @@
                 _head.appendChild(_style);
                 return _style;
             }
-
+            // 触发原生orientationchange
+            var fire = function(){
+                setTimeout(function(){
+                    var e;
+                    if(document.createEvent){
+                        e = document.createEvent('HTMLEvents');
+                        e.initEvent(eventType, true, true);
+                        win.dispatchEvent(e);
+                    } else {
+                        e = document.createEventObject();
+                        e.eventType = eventType;
+                        win.fireEvent(eventType, e);
+                        if(win[eventType]){
+                            win[eventType]();
+                        } else if(win['on' + eventType]){
+                            win['on' + eventType]();
+                        }
+                    }
+                }, 50)
+            }
             // callback
             var orientationCB = function(e) {
                 if (win.orientation === 180 || win.orientation === 0) {
@@ -89,6 +109,7 @@
                     }
                     event.trigger('__orientationChange__', meta);
                     event.trigger('orientationchange', meta);
+                    fire();
                 }
             };
             var resizeCB = function() {
@@ -114,12 +135,14 @@
                             meta.current = 'portrait';
                             event.trigger('__orientationChange__', meta);
                             event.trigger('orientationchange', meta);
+                            fire();
                         }
                     } else {
                         if (meta.current !== 'landscape') {
                             meta.current = 'landscape';
                             event.trigger('__orientationChange__', meta);
                             event.trigger('orientationchange', meta);
+                            fire();
                         }
                     }
                 }

@@ -45,53 +45,38 @@
 			margin: 10px 0;
 		}
 	</style>
-	 <script type="text/javascript" src="pl1.js"></script>
+	 <script type="text/javascript" src="pl_addEventListener.js"></script>
 </head>
 <body>
 	<h1 class="title">PL测试</h1>
 	<div class="container">
 		<h2 class="container-tt">测试数据：</h2>
 		<div class="container-wrapper">
-			<p><span class="tt">是否支持orientation：</span><span id="support" class="val"></span></p>
-			<p class="line"></p>
 			<p><span class="tt">初始化orientation：</span><span id="init" class="val"></span></p>
 			<p><span class="tt">当前orientation：</span><span id="current" class="val"></span></p>
 			<p class="line"></p>
 			<p><span class="tt">初始化font-family：</span><span id="ifont" class="val"></span></p>
 			<p><span class="tt">当前font-family：</span><span id="cfont" class="val"></span></p>
-			<p class="line"></p>
-			<p><span class="tt">pl.on：</span><span id="pl" class="val"></span></p>
 		</div>
 
 	</div>
 	<script>
-	(function(win) {
-		var support = document.getElementById('support');
-		var init = document.getElementById('init');
-		var current = document.getElementById('current');
-		var ifont = document.getElementById('ifont');
-		var cfont = document.getElementById('cfont');
-		var v = document.getElementById('pl');
-		
-		var getstyle =  window.getComputedStyle(document.documentElement, null);
-		support.innerHTML = win.pl.isOrientation ? '支持' : '不支持';
-		init.innerHTML = win.pl.orientation.init;
-		current.innerHTML = win.pl.orientation.current;
-		ifont.innerHTML = win.pl.orientation.font;
-		cfont.innerHTML = getstyle['font-family'];
-		v.innerHTML = win.pl.orientation.init;
-		win.pl.add(function(event){
-			current.innerHTML = event.current;
+		(function(win) {
+			var init = document.getElementById('init');
+			var current = document.getElementById('current');
+			var ifont = document.getElementById('ifont');
+			var cfont = document.getElementById('cfont');
+			var getstyle =  window.getComputedStyle(document.documentElement, null);
+			init.innerHTML = win.neworientation.init;
+			current.innerHTML = win.neworientation.current;
+			ifont.innerHTML = win.neworientation.font;
 			cfont.innerHTML = getstyle['font-family'];
-		});
-		pl.on('orientationchange', function(e){
-			v.innerHTML = e.current;
-		});
-		win.addEventListener('orientationchange', function(){
-			console.log('orientationchange');
-			// console.log('current: ' + win.newOrientation.isOrientation + '  ' + '   ' + win.newOrientation.current + '  ' + win.newOrientation.init);
-		}, false);
-	})(window);
+
+			win.addEventListener('orientationchange', function(){
+				current.innerHTML = win.neworientation.current;
+				cfont.innerHTML = getstyle['font-family'];
+			}, false);
+		})(window);
 	</script>
 </body>
 </html>
