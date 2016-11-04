@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>viewport</title>
+	<style>
+		html,
+		body{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			background-color: gray;
+		}
+		.head{
+			background-color: yellow;
+			height: 100px;
+			width: 100%;
+		}
+		.main{
+			overflow: auto;
+			position: relative;
+		}
+		.main-l{
+			width: 30%;
+			float: left;
+			background: red;
+			min-height: 600px;
+		}
+		.main-r{
+			width: 70%;
+			float: right;
+			background: blue;
+			min-height: 600px;
+		}
+	</style>
+</head>
+<body>
+	<div class="head">head</div>
+	<div class="main">
+		<div class="main-l">left</div>
+		<div class="main-r">right</div>
+	</div>
+</body>
+</html>
