@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/lazyimg-v1/static/css/main.56ffe61a.chunk.css",
-    "main.js": "/lazyimg-v1/static/js/main.8bcc6d4a.chunk.js",
-    "main.js.map": "/lazyimg-v1/static/js/main.8bcc6d4a.chunk.js.map",
+    "main.js": "/lazyimg-v1/static/js/main.af8cb825.chunk.js",
+    "main.js.map": "/lazyimg-v1/static/js/main.af8cb825.chunk.js.map",
     "runtime-main.js": "/lazyimg-v1/static/js/runtime-main.bda4f4fb.js",
     "runtime-main.js.map": "/lazyimg-v1/static/js/runtime-main.bda4f4fb.js.map",
     "static/js/2.bc586580.chunk.js": "/lazyimg-v1/static/js/2.bc586580.chunk.js",
@@ -36,13 +36,13 @@
     "static/media/bg8.jpg": "/lazyimg-v1/static/media/bg8.74101adb.jpg",
     "static/media/bg9.jpg": "/lazyimg-v1/static/media/bg9.26e57afc.jpg",
     "static/media/fire.bdee39b1.svg": "/lazyimg-v1/static/media/fire.bdee39b1.svg",
-    "static/media/lazyimg.a7c0be52.png": "/lazyimg-v1/static/media/lazyimg.a7c0be52.png",
+    "static/media/lazyimg-v1.928e18f5.png": "/lazyimg-v1/static/media/lazyimg-v1.928e18f5.png",
     "static/media/loading.7edbc42f.svg": "/lazyimg-v1/static/media/loading.7edbc42f.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.bda4f4fb.js",
     "static/js/2.bc586580.chunk.js",
     "static/css/main.56ffe61a.chunk.css",
-    "static/js/main.8bcc6d4a.chunk.js"
+    "static/js/main.af8cb825.chunk.js"
   ]
 }
